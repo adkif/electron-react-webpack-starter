@@ -1,7 +1,7 @@
 import { app, BrowserWindow } from 'electron';
 import * as path from 'path';
 import { pathToFileURL } from 'url';
-import { __IS_DEV__ } from '../shared';
+import { isDev } from '../shared';
 
 function createWindow() {
 	// Create the browser window.
@@ -10,12 +10,12 @@ function createWindow() {
 		height: 600,
 		webPreferences: {
 			nodeIntegration: true,
-			contextIsolation: false,
-			...(!__IS_DEV__ && { contextIsolation: true, webSecurity: true })
+			contextIsolation: !isDev,
+			webSecurity: !isDev
 		}
 	});
 
-	const url = __IS_DEV__
+	const url = isDev
 		? new URL('http://localhost:4000')
 		: pathToFileURL(path.join(__dirname, 'index.html'));
 	url.hash = '#';
