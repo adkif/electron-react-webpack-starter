@@ -11,7 +11,7 @@ const terserPlugin = new TerserPlugin({
 	extractComments: 'all',
 	terserOptions: {
 		compress: true
-  }
+	}
 });
 
 export default [
@@ -21,14 +21,14 @@ export default [
 		optimization: {
 			minimize: true,
 			minimizer: [terserPlugin]
-    }
+		}
 	}),
 	merge(renderer, {
 		mode: 'production',
 		devtool: 'source-map',
 		module: {
 			rules: rendererRulesProd
-    },
+		},
 		optimization: {
 			minimize: true,
 			minimizer: [
@@ -38,12 +38,12 @@ export default [
 					minimizerOptions: {
 						processorOptions: {
 							parser: 'sugarss'
-            }
+						}
 					}
 				}),
 				terserPlugin
 			]
 		},
 		plugins: [new MiniCssExtractPlugin()]
-  }),
+	})
 ];

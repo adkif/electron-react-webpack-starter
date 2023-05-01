@@ -8,8 +8,8 @@ export const PATH = {
 	ENTRY: {
 		RENDERER: '/app/renderer/renderer.tsx',
 		MAIN: '/app/main/index.ts'
-  },
+	},
 	STATIC: {
 		INDEX: path.resolve(__dirname, '/app/renderer/index.html')
-  }
+	}
 };

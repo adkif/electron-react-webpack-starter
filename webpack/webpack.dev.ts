@@ -1,10 +1,10 @@
 import { DefinePlugin } from 'webpack';
 import { merge } from 'webpack-merge';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import { spawn } from 'child_process';
 import { main, renderer } from './webpack.common';
 import { PATH } from './webpack.path';
 import { rendererRules } from './webpack.rules';
-import { spawn } from 'child_process';
 
 export default [
 	merge(main, {
